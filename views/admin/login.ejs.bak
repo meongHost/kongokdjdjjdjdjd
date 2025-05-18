@@ -1,0 +1,5 @@
+<form action="/admin/login" method="POST">
+  <label for="pin">Masukkan PIN Admin:</label>
+  <input type="password" name="pin" required>
+  <button type="submit">Login</button>
+</form>

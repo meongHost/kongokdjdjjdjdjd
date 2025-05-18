@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setting Config</title>
+</head>
+<body>
+  <h1>Setting Config</h1>
+  <form action="/admin/config" method="POST">
+    <label for="newConfig">Update Config JSON:</label>
+    <textarea name="newConfig" rows="10" cols="50"><%= JSON.stringify(config, null, 2) %></textarea><br>
+    <button type="submit">Simpan Config</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histori Pembelian</title>
+</head>
+<body>
+  <h1>Histori Pembelian</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>RAM</th>
+        <th>Nominal</th>
+        <th>Tanggal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% history.forEach(item => { %>
+        <tr>
+          <td><%= item.username %></td>
+          <td><%= item.ram %></td>
+          <td><%= item.nominal %></td>
+          <td><%= item.date %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
