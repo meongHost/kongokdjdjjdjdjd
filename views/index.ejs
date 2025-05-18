@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pembelian Panel Server</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #121212, #2a2a2a);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .card {
+      border-radius: 15px;
+      background-color: #1f1f1f;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+    }
+
+    .form-control,
+    .form-select {
+      background-color: #333;
+      border: none;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      background-color: #444;
+      color: #fff;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.3);
+    }
+
+    .btn-primary {
+      background-color: #1e90ff;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #4682b4;
+    }
+
+    .price-info {
+      background-color: #333;
+      border-left: 4px solid #1e90ff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .price-tag {
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: #ff6347;
+    }
+
+    .btn-pilih {
+      background-color: #444;
+      color: #fff;
+      border: 1px solid #555;
+      transition: background-color 0.3s;
+      font-size: 1.1rem;
+    }
+
+    .btn-pilih:hover {
+      background-color: #1e90ff;
+      color: #fff;
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 24px;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .carousel-item img {
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.6);
+      transition: filter 0.3s ease;
+    }
+
+    .carousel-item img:hover {
+      filter: brightness(1);
+    }
+
+    .dropdown-menu {
+      background-color: #333;
+    }
+
+    .dropdown-item {
+      color: #fff;
+    }
+
+    .dropdown-item:hover {
+      background-color: #1e90ff;
+    }
+
+    h3, p, label, h5 {
+      color: #fff !important;
+    }
+
+    .lead {
+      color: #fff !important;
+    }
+
+    .carousel-caption h5,
+    .carousel-caption p {
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark px-3">
+    <span class="navbar-brand mb-0 h5">Panel Bot Server</span>
+    <div class="dropdown">
+      <button class="btn btn-dark dropdown-toggle" type="button" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-three-dots-vertical"></i>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
+        <li><a class="dropdown-item" href="/">Beranda</a></li>
+        <li><a class="dropdown-item" href="/riwayat">Riwayat Pembelian</a></li>
+        <li><a class="dropdown-item" href="/tentang">Tentang Kami</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="/admin">Admin Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+
+    <!-- Heading -->
+    <div class="text-center mb-4">
+      <h3 class="mb-2">Pembelian Panel Server</h3>
+      <p class="lead">Silakan pilih paket sesuai kebutuhan Anda dan lanjutkan ke pembayaran.</p>
+    </div>
+
+    <!-- Form -->
+    <div class="card p-4 mb-4">
+      <form action="/buypanel" method="POST" onsubmit="return validateForm()">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" id="username" name="username" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="ram" class="form-label">Pilih RAM</label>
+          <select id="ram" name="ram" class="form-select" onchange="updateInfo()" required>
+            <option value="">-- Pilih RAM --</option>
+            <option value="1gb">1 GB</option>
+            <option value="2gb">2 GB</option>
+            <option value="3gb">3 GB</option>
+            <option value="4gb">4 GB</option>
+            <option value="5gb">5 GB</option>
+              <option value="0gb">unli</option>
+          </select>
+        </div>
+
+        <div id="ramInfo" class="price-info d-none">
+          <p><strong>Harga:</strong> <span id="hargaText">-</span></p>
+          <p><strong>CPU:</strong> <span id="cpuText">-</span></p>
+          <p><strong>Disk:</strong> <span id="diskText">-</span></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mt-3">Proses Pembayaran</button>
+      </form>
+    </div>
+
+    <!-- Harga Paket -->
+    <!-- Harga Paket -->
+<div class="card mb-4">
+  <div class="card-body">
+    <h5 class="mb-3">Harga Paket</h5>
+    <div class="row" id="hargaPaketContainer">
+      <!-- Tombol paket akan dimuat di sini oleh JavaScript -->
+    </div>
+  </div>
+</div>
+
+    <!-- Carousel -->
+    <div class="card mb-5">
+      <div class="card-body">
+        <h5>Testimonial</h5>
+        <div id="carouselTestimonial" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://source.unsplash.com/800x300/?server" class="d-block w-100" alt="Testimonial 1">
+              <div class="carousel-caption">
+                <h5>Paket Terbaik!</h5>
+                <p>“Sangat puas dengan layanan dan harga yang ditawarkan.”</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://source.unsplash.com/800x300/?cloud" class="d-block w-100" alt="Testimonial 2">
+              <div class="carousel-caption">
+                <h5>Harga Terjangkau</h5>
+                <p>“Paket dengan harga yang sangat terjangkau dan kualitas prima.”</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonial" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonial" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/6282318067473" class="whatsapp-btn" title="Hubungi Admin" target="_blank">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+ 
+<script>
+  let paket;
+
+  // Memuat harga dari server
+  fetch('/config')
+    .then(response => response.json())
+    .then(data => {
+      paket = data;
+      renderPaketButtons();  // Panggil fungsi untuk render tombol harga
+    })
+    .catch(err => {
+      console.error('Error memuat harga:', err);
+    });
+
+  // Fungsi untuk render tombol harga
+  function renderPaketButtons() {
+    const container = document.getElementById('hargaPaketContainer');
+    container.innerHTML = ''; // Clear dulu
+
+    // Render tombol untuk setiap paket berdasarkan data harga
+    Object.keys(paket).forEach(key => {
+      const harga = paket[key].toLocaleString('id-ID');
+      container.innerHTML += `
+        <div class="col-6 col-md-3 mb-2">
+          <button class="btn w-100 btn-pilih" onclick="selectPackage('${key}')">
+            ${key.toUpperCase()} <span class="price-tag">Rp ${harga}</span>
+          </button>
+        </div>
+      `;
+    });
+  }
+
+  // Fungsi untuk memilih paket dan menampilkan info tambahan
+  function selectPackage(pkg) {
+    document.getElementById('ram').value = pkg;
+    updateInfo();
+  }
+
+  // Fungsi untuk menampilkan info terkait dengan pilihan paket
+  function updateInfo() {
+    const selected = document.getElementById('ram').value;
+    const harga = paket ? paket[selected] : null;
+    const infoDiv = document.getElementById('ramInfo');
+
+    if (harga) {
+      document.getElementById('hargaText').textContent = `Rp ${harga.toLocaleString('id-ID')}`;
+      document.getElementById('cpuText').textContent = selected === '1gb' ? '30%' :
+                                                      selected === '2gb' ? '40%' :
+                                                      selected === '3gb' ? '50%' :
+                                                      selected === '4gb' ? '60%' :
+                                                      '70%';
+      document.getElementById('diskText').textContent = selected === '1gb' ? '1000 MB' :
+                                                          selected === '2gb' ? '2000 MB' :
+                                                          selected === '3gb' ? '3000 MB' :
+                                                          selected === '4gb' ? '4000 MB' :
+                                                          '5000 MB';
+      infoDiv.classList.remove('d-none');
+    } else {
+      infoDiv.classList.add('d-none');
+    }
+  }
+
+  // Fungsi untuk validasi form
+  function validateForm() {
+    const username = document.getElementById('username').value;
+    if (!username.match(/^[a-zA-Z0-9_]{3,}$/)) {
+      alert("Username minimal 3 karakter dan hanya huruf/angka/underscore.");
+      return false;
+    }
+    return true;
+  }
+</script>
+</body>
+</html>
