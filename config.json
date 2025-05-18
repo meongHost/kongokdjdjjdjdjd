@@ -1,8 +1,8 @@
 {
   "admin_pin": "123456",
   "api": {
-    "base_url": "https://apinetwork.my.id",
-    "secret_key": "sk-a4e6gh5zwz3324"
+    "base_url": "https://forestapi.web.id",
+    "secret_key": "sk-r5nwgz3ehbc0hl"
   },
   "server_panel": {
     "url": "https://clint-apinetwork.panelshopp.biz.id",
