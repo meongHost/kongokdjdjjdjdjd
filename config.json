@@ -1,0 +1,30 @@
+{
+  "admin_pin": "123456",
+  "api": {
+    "base_url": "https://apinetwork.my.id",
+    "secret_key": "sk-a4e6gh5zwz3324"
+  },
+  "server_panel": {
+    "url": "https://clint-apinetwork.panelshopp.biz.id",
+    "url1": "https://chat.whatsapp.com/IjZvoLwpvipKeWw4K0zO1U",
+    "key": "ptla_sgwagvhmag0UedODKL7duRhlmfpWzSCeirsOEVeWl34",
+    "egg": "18",
+    "location": "1"
+  },
+  "price": {
+    "panel_packages": {
+      "0gb": "12000",
+      "1gb": "2000",
+      "2gb": "3000",
+      "3gb": "4000",
+      "4gb": "5000",
+      "5gb": "6000",
+      "6gb": "8000"
+    }
+  },
+  "my_group": {
+    "name": "Nama Grup Kamu",
+    "url": "https://chat.whatsapp.com/...",
+    "profile_picture": "https://i.ibb.co/xyz123/profile.jpg"
+  }
+}
