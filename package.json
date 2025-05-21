@@ -1,16 +1,17 @@
 {
-  "name": "buypanel-web",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "cors-anywhere",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Cors Anywhere - Proxy for image URL",
+  "main": "api/app.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node api/app.js",
+    "dev": "nodemon api/app.js"
   },
   "dependencies": {
-    "axios": "^1.6.0",
-    "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "express-session": "^1.17.3",
-    "node-fetch": "^3.3.2"
-  },
-  "type": "module"
+    "ssl-express-www": "^3.0.7",
+    "cors": "^2.8.5",
+    "axios": "^1.7.5"
+  }
 }
